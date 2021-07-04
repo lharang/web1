@@ -34,6 +34,7 @@
 		.h {float: left; width: 30%; height: 70px; line-height: 70px; background: #404050;}
         .i {float: left; width: 70%; height: 70px; line-height: 70px; background: #505060;}
 		
+		a {display : block;}
 		textarea {font-size: 15px; width: 99%; height: 86%; resize: none;}
     </style>
 
@@ -100,11 +101,7 @@
         </div>
         <div class="h">첨부파일</div>
         <div class="i">
-        <a href="upload.jsp">
-        <input type="file" name="file" value="파일 선택" >
-        <%=fileDTO.getFileName()%>
-        </a>
-        
+        <a href="upload.jsp"><input type="file" name="file" value="파일 선택" ></a>
    		</div>
    		</form>
     </div>
