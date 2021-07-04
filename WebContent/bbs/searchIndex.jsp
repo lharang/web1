@@ -268,11 +268,11 @@
 				 		<% 
 							if(pageNumber != 1) {
 							session.setAttribute("searchWord",searchWord);
-						%> <button class="left" onclick="location.href='searchedIndex.jsp?pageNumber=<%=pageNumber-1%>'"
+						%> <button class="left" onclick="location.href='searchIndex.jsp?pageNumber=<%=pageNumber-1%>'"
 							class="btn btn-success btn-arrow-left">Back</button> <%		
 							} if(bbsDAO.searchedNextPage(pageNumber,searchWord)) {
 							session.setAttribute("searchWord",searchWord);
-							%> <button class="right" onclick="location.href='searchedIndex.jsp?pageNumber=<%=pageNumber+1%>'"
+							%> <button class="right" onclick="location.href='searchIndex.jsp?pageNumber=<%=pageNumber+1%>'"
 							class="btn btn-success btn-arrow-right">Next</button> <% 
 							}
 						%>
