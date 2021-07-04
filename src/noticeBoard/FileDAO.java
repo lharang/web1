@@ -58,13 +58,15 @@ public class FileDAO {
 	//첨부파일
 	public FileDTO getFile(int bbsId){
 		try {
-		String sql = "select fileName from file where bbsId = ?";
+		String sql = "select * from file where bbsId = ?";
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, bbsId);
 		rs = pstmt.executeQuery();
 			if(rs.next()) {
 				FileDTO fileDTO = new FileDTO();
-				fileDTO.setBbsId(rs.getInt(1));
+				fileDTO.setFileName(rs.getString(1));
+				fileDTO.setFileRealName(rs.getNString(2));
+				fileDTO.setBbsId(rs.getInt(3));
 				return fileDTO;
 			}
 		}catch(Exception e) {

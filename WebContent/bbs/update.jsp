@@ -19,6 +19,8 @@
         body {background-color: white;}
         #wraps {width: 100%; height: 800px; margin: 0 auto; font-size: 20px; color:#fff; text-align: center; text-transform: uppercase;}
         .a {float: left; width: 80%; height: 70px; line-height: 70px; background-color : #505060;}
+        div.id {float: left;  height: 70px; width: 50%; line-height: 70px; background-color : #505060;}
+        div.part {float: left; width: 30%; height: 70px; line-height: 70px; background: #454555;}
 		.b {float: left; width: 10%; height: 70px; line-height: 70px; background-color : #404050;}
 		.c {float: left; width: 10%; height: 70px; line-height: 70px; background-color : #303040;}
         
@@ -74,13 +76,14 @@
 			script.println("history.back()");
 			script.println("</script>");
 		}
+		FileDTO fileDTO = new FileDAO().getFile(bbs.getBbsId());
 	%>
 	
     <div id="wraps">
       <form name="bbsUpdate" action="updateAction.jsp?bbsId=<%=bbsId%>" method="post"  enctype="multipart/form-data" >
       
-        <div class="a">
-        </div>
+        <div class="part">작성자</div>
+        <div class="id"><%=bbs.getId()%></div>
         <div class="b">
         	<input type="button" value="뒤로가기" onclick='history.back(-1)'>
         </div>
@@ -98,7 +101,8 @@
         <div class="h">첨부파일</div>
         <div class="i">
         <a href="upload.jsp">
-        <input type="file" name="file" value="파일 선택">
+        <input type="file" name="file" value="파일 선택" >
+        <%=fileDTO%>
         </a>
         
    		</div>
