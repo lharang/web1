@@ -1,6 +1,7 @@
-package bbs;
+	package noticeBoard;
 
-public class Users {
+public class JanusBean 
+{
 	private String name;
 	private String id;
 	private String passwd;
@@ -8,8 +9,17 @@ public class Users {
 	private String address;
 	private String phone;
 	private String email;
+	
+	public String getOriId() {
+		return oriId;
+	}
+	public void setOriId(String oriId) {
+		this.oriId = oriId;
+	}
 	private String pin_num;
 	private String UserGrade;
+	private String oriId;
+	
 	public String getName() {
 		return name;
 	}
@@ -21,6 +31,12 @@ public class Users {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getPasswd() {
+		return passwd;
+	}
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 	public String getGender() {
 		return gender;
@@ -52,16 +68,12 @@ public class Users {
 	public void setPin_num(String pin_num) {
 		this.pin_num = pin_num;
 	}
+	
 	public String getUserGrade() {
 		return UserGrade;
 	}
-	public void setUserGrade(String userGrade) {
-		UserGrade = userGrade;
+	public void setUserGrade(String UserGrade) {
+		this.UserGrade = UserGrade;
 	}
-	public String getPasswd() {
-		return passwd;
-	}
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
-	}
+	
 }

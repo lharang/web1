@@ -1,4 +1,4 @@
-package bbs;
+package noticeBoard;
 
 public class Bbs {
 	private int bbsId;
@@ -6,7 +6,8 @@ public class Bbs {
 	private String id;
 	private String bbsDate;
 	private String bbsContent;
-	private int Available;
+	private int bbsAvailable;
+	private int bbsCnt;
 	
 	
 	public int getBbsId() {
@@ -39,10 +40,16 @@ public class Bbs {
 	public void setBbsContent(String bbsContent) {
 		this.bbsContent = bbsContent;
 	}
-	public int getAvailable() {
-		return Available;
+	public int getBbsAvailable() {
+		return bbsAvailable;
 	}
-	public void setAvailable(int available) {
-		Available = available;
+	public void setBbsAvailable(int bbsavailable) {
+		this.bbsAvailable = bbsavailable;
+	}
+	public int getBbsCnt() {
+		return bbsCnt;
+	}
+	public void setBbsCnt(int bbsCnt) {
+		this.bbsCnt = bbsCnt;
 	}
 }
