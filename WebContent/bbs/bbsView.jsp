@@ -148,7 +148,7 @@
 		
 		<div class="part">조회수</div>
         <div class="text">
-        <%=bbs.getBbsCnt()%>
+        <%=bbs.getBbsCnt()+1%>
 		</div>
 		
         <div class="content1">

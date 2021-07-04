@@ -193,29 +193,14 @@ public class BbsDAO {
 		//게시글 검색
 		public ArrayList<Bbs> getSearchedList(int pageNumber, String searchWord){
 			
-			int no2=0;
-			
-			if(getNext()>pageNumber*10) {
-				no2 = pageNumber*10;
-			} else {
-			  no2 = getNext();
-			}
-			
-			int no1=(pageNumber -1)*10+1;
-			
-			String SQL = "select * from (select row_number() over (order by bbsDate desc) NUM, A.* from bbs A where bbsAvailable=1 and bbsTitle like'%"
-					+ searchWord
-					+ "%' order by bbsDate desc) where NUM between "
-					+ no1
-					+ " and "
-					+ no2;
-					
+			String sql = "select * from bbs where bbsAvailable=1 and bbsTitle like'%"
+					+ searchWord + "%' order by bbsDate asc";
 			ArrayList<Bbs> list = new ArrayList<Bbs>();
 			try {
 
-				System.out.println("sql statement : "+SQL);
+				System.out.println("sql statement : "+sql);
 				Statement stmt = conn.createStatement();
-				rs = stmt.executeQuery(SQL);
+				rs = stmt.executeQuery(sql);
 				
 				while(rs.next()) {
 					Bbs bbs = new Bbs();

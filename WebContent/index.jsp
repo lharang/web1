@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 	<%@ page import="java.io.PrintWriter"%>
 <%@ page import="noticeBoard.BbsDAO"%>
 <%@ page import="noticeBoard.Bbs"%>
 <%@ page import="java.util.ArrayList"%>
+<% request.setCharacterEncoding("utf-8"); %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -167,10 +168,10 @@
 <body>
 
 <%
-	//ÆäÀÌÁö ³Ñ¹ö
-	int pageNumber = 1; //±âº»Àº 1 ÆäÀÌÁö¸¦ ÇÒ´ç
-		// ¸¸¾à ÆÄ¶ó¹ÌÅÍ·Î ³Ñ¾î¿Â ¿ÀºêÁ§Æ® Å¸ÀÔ 'pageNumber'°¡ Á¸ÀçÇÑ´Ù¸é
-		// 'int'Å¸ÀÔÀ¸·Î Ä³½ºÆÃÀ» ÇØÁÖ°í ±× °ªÀ» 'pageNumber'º¯¼ö¿¡ ÀúÀåÇÑ´Ù
+	//í˜ì´ì§€ ë„˜ë²„
+	int pageNumber = 1; //ê¸°ë³¸ì€ 1 í˜ì´ì§€ë¥¼ í• ë‹¹
+		// ë§Œì•½ íŒŒë¼ë¯¸í„°ë¡œ ë„˜ì–´ì˜¨ ì˜¤ë¸Œì íŠ¸ íƒ€ì… 'pageNumber'ê°€ ì¡´ì¬í•œë‹¤ë©´
+		// 'int'íƒ€ì…ìœ¼ë¡œ ìºìŠ¤íŒ…ì„ í•´ì£¼ê³  ê·¸ ê°’ì„ 'pageNumber'ë³€ìˆ˜ì— ì €ì¥í•œë‹¤
 		if(request.getParameter("pageNumber") != null){
 			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
 		}
@@ -183,8 +184,8 @@
 		</div>
 		<div class="header_second">
 			<form method="post" action="searchIndex.jsp" class="header_second">
-			<input type="text" name="search" size=50 placeholder="search" class="header_second">
-			<button type="submit" class="header_second">°Ë»ö</button>
+			<input type="text" name="searchWord" size=50 placeholder="search" class="header_second">
+			<button type="submit" class="header_second">ê²€ìƒ‰</button>
 			</form>
 		</div>
 		<div class="header_third">
@@ -196,19 +197,19 @@
 	
 	<div class="userDIV" id="myDIV" >
 		<div class="login">
-			<a href="user/login.jsp">·Î±×ÀÎ</a>
+			<a href="user/login.jsp">ë¡œê·¸ì¸</a>
 		</div>
 		<br>
 		<div class="join">
-			<a href="user/join.jsp">È¸¿ø°¡ÀÔ</a>
+			<a href="user/join.jsp">íšŒì›ê°€ì…</a>
 		</div>
 	</div>
 
 		
-		<!-- °Ô½Ã±Û ¸®½ºÆ® -->
+		<!-- ê²Œì‹œê¸€ ë¦¬ìŠ¤íŠ¸ -->
 		<div class="BbsList">
 		<div class="write">
-			<a href="bbsWrite.jsp"> <input class="write" type="button" value="±Û¾²±â">
+			<a href="bbsWrite.jsp"> <input class="write" type="button" value="ê¸€ì“°ê¸°">
 			</a>
 		</div>
 			<table class="BbsList">
@@ -218,10 +219,10 @@
 						</tr>
 						<tr id="bar">
 							<td id="1"></td>
-							<td id="2"">¹øÈ£</td>
-							<td id="3"">Á¦¸ñ</td>
-							<td id="4">±Û¾´ÀÌ</td>
-							<td id="5">ÀÛ¼ºÀÏ</td>
+							<td id="2"">ë²ˆí˜¸</td>
+							<td id="3"">ì œëª©</td>
+							<td id="4">ê¸€ì“´ì´</td>
+							<td id="5">ì‘ì„±ì¼</td>
 							<td id="6"></td>
 						</tr>
 						<tr height="25" align="center">
@@ -233,14 +234,14 @@
 				
 				<tbody>
 					<%
-						BbsDAO bbsDAO = new BbsDAO(); // ÀÎ½ºÅÏ½º »ı¼º
+						BbsDAO bbsDAO = new BbsDAO(); // ì¸ìŠ¤í„´ìŠ¤ ìƒì„±
 						ArrayList<Bbs> list = bbsDAO.getList(pageNumber);
 						for(int i = 0; i < list.size(); i++){
 					%>
 					<tr>
 						<td id="1"></td>
 						<td id="2"><%= list.get(i).getBbsId() %></td>
-						<!-- °Ô½Ã±Û Á¦¸ñÀ» ´©¸£¸é ÇØ´ç ±ÛÀ» º¼ ¼ö ÀÖµµ·Ï ¸µÅ©¸¦ °É¾îµĞ´Ù -->
+						<!-- ê²Œì‹œê¸€ ì œëª©ì„ ëˆ„ë¥´ë©´ í•´ë‹¹ ê¸€ì„ ë³¼ ìˆ˜ ìˆë„ë¡ ë§í¬ë¥¼ ê±¸ì–´ë‘”ë‹¤ -->
 						<td id="3"><a href="bbsView.jsp?bbsId=<%= list.get(i).getBbsId() %>">
 							<%= list.get(i).getBbsTitle() %></a></td>
 						<td id="4"><%= list.get(i).getId() %></td>
@@ -257,7 +258,7 @@
 					</table>
 				
 				<div class="page">
-				<!-- ÆäÀÌÂ¡ -->
+				<!-- í˜ì´ì§• -->
 				<%if(pageNumber !=1){%>
 				    <button onclick="location.href='bbs.jsp?pageNumber=<%=pageNumber -1 %>'"
 				         class="left">Back</button>

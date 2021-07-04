@@ -7,8 +7,9 @@ import java.sql.ResultSet;
 
 public class FileDAO {
 	private Connection conn;
-	private ResultSet rs;
+
 	
+	//생성자
 	public FileDAO() {
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/Janusdb";
@@ -21,6 +22,7 @@ public class FileDAO {
 		}
 	}
 	
+	//업로드 메소드
 	public int upload(String fileName, String fileRealName, int bbsId) {
 		String sql = "insert into file values (?, ?, ?)";
 		try {
