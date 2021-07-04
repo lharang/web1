@@ -56,10 +56,21 @@
 			float: left;
 			width: 33%;
 		}
-		.header_second{
+		div.header_second{
 			border: 0px solid; 
 			float: left; 
 			width: 33%;
+		}
+		input.header_second{
+			width: 80%;
+		}
+		button.header_second{
+			width : 10%;
+			height : 50px;
+			background-color : #404050;
+			color : white;
+			border: 1px solid white;
+		    border-radius :3px;
 		}
 		.header_third{
 			border: 0px solid; 
@@ -91,21 +102,8 @@
 			background-color : #404050;
 			color : white;
 		}
-		div.BbsList1{
-			margin-top : 100px;
-			margin-bottom : 50px;
-			width : 50%;
-			color : black;
-			background-color : white;
-			border : 3px solid white;
-			border-radius: 12px;
-		}
-		table.BbsList1{
-			width : 100%;
-			text-align : center;
-			background-color : #F0F0F5;
-		}
-		div.BbsList2{
+		div.BbsList{
+		    margin-top : 120px;
 		    padding : 30px 0 ;
 			width : 100%;
 			height : auto;
@@ -115,16 +113,36 @@
 			border-radius: 12px;
 			
 		}
-		table.BbsList2{
+		table.BbsList{
 			width : 100%;
 			text-align : center;
-			margin : auto;
+			margin : 20px 0;
 			background-color : #F0F0F5;
+		}
+		div.page{
+			padding : 0;
+			margin-top : 0;
+			margin-left : 15px;
+		}
+		button.left{
+			background-color : #404050;
+			color : white;
+			border: 1px solid white;
+		    border-radius :3px;
+		    height : 25px;
+		}
+		button.right{
+			background-color : #404050;
+			color : white;
+			border: 1px solid white;
+		    border-radius :3px;
+		    height : 25px;
 		}
 		input[type="text"] {
 			border: solid 2px black;
 			border-radius: 12px;
 			height:50px;
+			
 		}
 		
 	</style>
@@ -149,6 +167,7 @@
 <body>
 
 <%
+	//페이지 넘버
 	int pageNumber = 1; //기본은 1 페이지를 할당
 		// 만약 파라미터로 넘어온 오브젝트 타입 'pageNumber'가 존재한다면
 		// 'int'타입으로 캐스팅을 해주고 그 값을 'pageNumber'변수에 저장한다
@@ -163,7 +182,10 @@
 			<img src="img/Janus.PNG" style="width:85px; height:85px;"><br>
 		</div>
 		<div class="header_second">
-			<input type="text" name="search" size=50 placeholder="게시글 검색창">
+			<form method="post" action="searchIndex.jsp" class="header_second">
+			<input type="text" name="search" size=50 placeholder="search" class="header_second">
+			<button type="submit" class="header_second">검색</button>
+			</form>
 		</div>
 		<div class="header_third">
 			<a href="javascript:doDisplay();">
@@ -181,9 +203,15 @@
 			<a href="user/join.jsp">회원가입</a>
 		</div>
 	</div>
-	
-		<div class="BbsList1">
-			<table class="BbsList1">
+
+		
+		<!-- 게시글 리스트 -->
+		<div class="BbsList">
+		<div class="write">
+			<a href="bbsWrite.jsp"> <input class="write" type="button" value="글쓰기">
+			</a>
+		</div>
+			<table class="BbsList">
 				<thead>
 						<tr height="5">
 							<td width="5"></td>
@@ -213,64 +241,14 @@
 						<td id="1"></td>
 						<td id="2"><%= list.get(i).getBbsId() %></td>
 						<!-- 게시글 제목을 누르면 해당 글을 볼 수 있도록 링크를 걸어둔다 -->
-						<td id="3"><a href="bbs/bbsView.jsp?bbsId=<%= list.get(i).getBbsId() %>">
+						<td id="3"><a href="bbsView.jsp?bbsId=<%= list.get(i).getBbsId() %>">
 							<%= list.get(i).getBbsTitle() %></a></td>
 						<td id="4"><%= list.get(i).getId() %></td>
 						<td id="5"><%= list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + ":"
 							+ list.get(i).getBbsDate().substring(14, 16) %></td>
 						<td id="6"></td>
 					</tr>
-					<%
-						}
-					%>
-
-				</tbody>
-					</table>
-					</div>
-
-		
-		<!-- 게시글 리스트 -->
-		<div class="BbsList2">
-		<div class="write">
-			<a href="bbsWrite.jsp"> <input class="write" type="button" value="글쓰기">
-			</a>
-		</div>
-			<table class="BbsList2">
-				<thead>
-						<tr height="5">
-							<td width="5"></td>
-						</tr>
-						<tr id="bar">
-							<td id="1"></td>
-							<td id="2"">번호</td>
-							<td id="3"">제목</td>
-							<td id="4">글쓴이</td>
-							<td id="5">작성일</td>
-							<td id="6"></td>
-						</tr>
-						<tr height="25" align="center">
-						</tr>
-						<tr height="1" bgcolor="#D2D2D2">
-							<td colspan="6"></td>
-						</tr>
-						</thead>
-				
-				<tbody>
-					<%
-						
-						for(int i = 0; i < list.size(); i++){
-					%>
-					<tr>
-						<td id="1"></td>
-						<td id="2"><%= list.get(i).getBbsId() %></td>
-						<!-- 게시글 제목을 누르면 해당 글을 볼 수 있도록 링크를 걸어둔다 -->
-						<td id="3"><a href="bbs/bbsView.jsp?bbsId=<%= list.get(i).getBbsId() %>">
-							<%= list.get(i).getBbsTitle() %></a></td>
-						<td id="4"><%= list.get(i).getId() %></td>
-						<td id="5"><%= list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + ":"
-							+ list.get(i).getBbsDate().substring(14, 16) %></td>
-						<td id="6"></td>
-					</tr>
+					
 					<%
 						}
 					%>
@@ -278,23 +256,18 @@
 				</tbody>
 					</table>
 				
+				<div class="page">
 				<!-- 페이징 -->
-				<%
-					if(pageNumber !=1){
-				%>
-				    <a href="bbs.jsp?pageNumber=<%=pageNumber -1 %>"
-				         class="left">이전</a>
+				<%if(pageNumber !=1){%>
+				    <button onclick="location.href='bbs.jsp?pageNumber=<%=pageNumber -1 %>'"
+				         class="left">Back</button>
 				         
-				 <%
-					}if(bbsDAO.nextPage(pageNumber +1)){      
-				 %>
+				 <%}if(bbsDAO.nextPage(pageNumber +1)){%>
+				 	<button onclick="location.href='bbs.jsp?pageNumber=<%=pageNumber +1 %>'"
+				 		class="right">Next</button>
+				 <%}%>
+				 </div>
 				 
-				 	<a href="bbs.jsp?pageNumber=<%=pageNumber +1 %>"
-				 		class="right">다음</a>
-				 <%
-					}
-				 %>
-				 	
 					</div>
 </body>
 

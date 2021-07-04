@@ -81,12 +81,13 @@ public class BbsDAO {
 
 	
 	//조회수 증가
-	public int bbsCnt(int bbsId, int bbsCnt) {
+	public int bbsCnt(int count,int bbsId) {
 		try {
-			
-			String sql = "update into bbs set bbsCnt = ? where bbsId = ?";
+			String sql = "update bbs set bbsCnt = ? where bbsId = ?";
+			System.out.println(sql);
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(7, bbsId);
+			pstmt.setInt(1,count);
+			pstmt.setInt(2, bbsId);
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

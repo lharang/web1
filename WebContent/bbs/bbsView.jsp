@@ -75,21 +75,11 @@
 		
 		// 유효한 글이라면 구체적인 정보를 인스턴스에 담는다
 		Bbs bbs = new BbsDAO().getBbs(bbsId);
-		BbsDAO bbsDAO = new BbsDAO();
 		
-		//조회수
-		int bbsCnt;
-		if(session.getAttribute("bbsCnt")!=null)
-		{
-			bbsCnt = ((Integer)session.getAttribute("bbsCnt")).intValue();
-		}
-		else
-		{
-			bbsCnt = 0;
-		}
-		bbsCnt ++;
-		session.setAttribute("bbsCnt", new Integer(bbsCnt));
-		bbsDAO.bbsCnt(bbsId,bbsCnt);
+		//조회수 저장
+		BbsDAO bbsDAO = new BbsDAO();
+	    bbsDAO.bbsCnt(bbs.getBbsCnt()+1,bbsId);
+		
 	%>
 	
 	
@@ -158,7 +148,7 @@
 		
 		<div class="part">조회수</div>
         <div class="text">
-        <%=bbsCnt%>
+        <%=bbs.getBbsCnt()%>
 		</div>
 		
         <div class="content1">
