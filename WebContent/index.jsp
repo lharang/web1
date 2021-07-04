@@ -260,11 +260,11 @@
 				<div class="page">
 				<!-- 페이징 -->
 				<%if(pageNumber !=1){%>
-				    <button onclick="location.href='bbs.jsp?pageNumber=<%=pageNumber -1 %>'"
+				    <button onclick="location.href='index.jsp?pageNumber=<%=pageNumber -1 %>'"
 				         class="left">Back</button>
 				         
 				 <%}if(bbsDAO.nextPage(pageNumber +1)){%>
-				 	<button onclick="location.href='bbs.jsp?pageNumber=<%=pageNumber +1 %>'"
+				 	<button onclick="location.href='index.jsp?pageNumber=<%=pageNumber +1 %>'"
 				 		class="right">Next</button>
 				 <%}%>
 				 </div>

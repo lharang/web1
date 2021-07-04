@@ -123,6 +123,7 @@ public class BbsDAO {
 	//다음 페이지
 		public boolean nextPage(int pageNumber) {
 			String sql = "select * from bbs where bbsId < ? and bbsAvailable = 1";
+			ArrayList<Bbs> list = new ArrayList<Bbs>();
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, getNext() - (pageNumber - 1) * 10);
@@ -195,7 +196,7 @@ public class BbsDAO {
 		public ArrayList<Bbs> getSearchedList(int pageNumber, String searchWord){
 			
 			String sql = "select * from bbs where bbsAvailable=1 and bbsTitle like'%"
-					+ searchWord + "%' order by bbsDate asc";
+					+searchWord+"%' order by bbsId desc limit 10";
 			ArrayList<Bbs> list = new ArrayList<Bbs>();
 			try {
 
@@ -223,10 +224,10 @@ public class BbsDAO {
 		}
 		
 		
-		
 		//검색시 다음페이지
 		public int getSearchedNext(String searchWord) {
-			String SQL = "select NUM from (select row_number() over (order by bbsDate desc) NUM, A.* from bbs A where bbsAvailable=1 and bbsTitle like '%"+searchWord+"%' order by NUM desc)";
+			String SQL = "select * from bbs where bbsAvailable=1 and bbsTitle like '%"
+						+searchWord+"%' order by bbsId desc limit 10";
 			try {
 				//PreparedStatement pstmt = conn.prepareStatement(SQL);
 				//rs = pstmt.executeQuery();
@@ -242,6 +243,8 @@ public class BbsDAO {
 			}
 			return -1;
 		}
+		
+		
 		//검색시 다음버튼
 		public boolean searchedNextPage(int pageNumber,String searchWord) {
 			
