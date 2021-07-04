@@ -102,7 +102,7 @@
         <div class="i">
         <a href="upload.jsp">
         <input type="file" name="file" value="파일 선택" >
-        <%=fileDTO%>
+        <%=fileDTO.getFileName()%>
         </a>
         
    		</div>
