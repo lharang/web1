@@ -119,6 +119,7 @@ public class BbsDAO {
 		}
 		return list;
 	}
+	
 	//다음 페이지
 		public boolean nextPage(int pageNumber) {
 			String sql = "select * from bbs where bbsId < ? and bbsAvailable = 1";

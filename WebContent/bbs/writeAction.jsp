@@ -43,7 +43,7 @@
 			BbsDAO bbsDAO = new BbsDAO();
 			Bbs bbs = new Bbs();
 			bbs.setBbsId(bbsDAO.getNext());
-			int bbsId = -bbs.getBbsId();
+			int bbsId = bbs.getBbsId();
 			
 			String directory = application.getRealPath("/upload/"+bbsId+"/");
 			

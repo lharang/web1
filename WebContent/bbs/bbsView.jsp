@@ -128,7 +128,8 @@
 		
 		<div class="part">첨부파일</div>
         <div class="text">
-		<% 
+		
+		<%
 		//다운로드
     	String directory = application.getRealPath("/upload/"+bbsId+"/");
 	
@@ -143,6 +144,7 @@
 				java.net.URLEncoder.encode(file,"UTF-8") + "\">" + file + "</a><br>");
 					}
 		%>
+        
         
 		</div>
 		

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 
 public class FileDAO {
 	private Connection conn;
+	private ResultSet rs;
 
 	
 	//생성자
@@ -52,6 +53,26 @@ public class FileDAO {
 		}
 		return -1;
 	}
+	
+	
+	//첨부파일
+	public FileDTO getFile(int bbsId){
+		try {
+		String sql = "select fileName from file where bbsId = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, bbsId);
+		rs = pstmt.executeQuery();
+			if(rs.next()) {
+				FileDTO fileDTO = new FileDTO();
+				fileDTO.setBbsId(rs.getInt(1));
+				return fileDTO;
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	
 	
 }
