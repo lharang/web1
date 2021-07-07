@@ -209,7 +209,7 @@
 		<!-- 게시글 리스트 -->
 		<div class="BbsList">
 		<div class="write">
-			<a href="bbsWrite.jsp"> <input class="write" type="button" value="글쓰기">
+			<a href="bbs/bbsWrite.jsp"> <input class="write" type="button" value="글쓰기">
 			</a>
 		</div>
 			<table class="BbsList">
