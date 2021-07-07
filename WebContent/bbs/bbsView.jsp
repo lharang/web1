@@ -155,7 +155,8 @@
 		
         <div class="content1">
         	<div class="content2">
-			<%= bbs.getBbsContent()%>
+			<%= bbs.getBbsContent().replaceAll(" ", "&nbsp;")
+			.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%>
 			</div>
         </div>
         
