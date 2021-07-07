@@ -24,7 +24,7 @@
 		PrintWriter script = response.getWriter();
 		script.println("<script>");
 		script.println("alert('이미 로그인이 되어있습니다')");
-		script.println("location.href='index.jsp'");
+		script.println("location.href='bbs/loginIndex.jsp'");
 		script.println("</script>");
 	}
 		if (user.getId() == null || user.getPasswd() == null || user.getName() == null
@@ -51,7 +51,7 @@
 				session.setAttribute("id", user.getId());
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
-				script.println("location.href = 'sss.jsp'");
+				script.println("location.href = 'bbs/loginIndex.jsp'");
 				script.println("</script>");
 			}
 		}
