@@ -49,8 +49,8 @@
 			
 			File targetDir = new File(directory);
 			if(!targetDir.exists()){
-				targetDir.mkdirs();
-			}
+				targetDir.mkdirs();}
+			
 			
 			//파일업로드
 			//실제경로 
