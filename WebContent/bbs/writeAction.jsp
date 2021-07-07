@@ -49,7 +49,8 @@
 			
 			File targetDir = new File(directory);
 			if(!targetDir.exists()){
-				targetDir.mkdirs();}
+				targetDir.mkdirs();
+			}
 			
 			
 			//파일업로드
@@ -57,7 +58,6 @@
 			//C:\eclipse_ee\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\noticeBoard\업로드 (영어로쓰면 주석처리x)
 			int maxSize = 1024 * 1024 * 100; //파일 사이즈
 			String encoding = "UTF-8";
-			//파일 업로드 실행
 			MultipartRequest multipartRequest= new MultipartRequest(request, directory, maxSize, encoding, new DefaultFileRenamePolicy());
 			String fileName = multipartRequest.getOriginalFileName("file");
 			String fileRealName = multipartRequest.getFilesystemName("file");
@@ -80,10 +80,11 @@
 				System.out.println("getNext before bbsDAO.write : " + bbs.getBbsId());
 				int result = bbsDAO.write(bbs.getBbsTitle(),id,bbs.getBbsContent());
 				
+				if(fileName!=null){
 				new FileDAO().upload(fileName, fileRealName, bbs.getBbsId());
 				out.write("fileName : " + fileName + "<br>");
 				out.write("fileRealName : " + fileName + "<br>");
-				
+				}
 				
 				
 				//데이터베이스 오류인 경우
