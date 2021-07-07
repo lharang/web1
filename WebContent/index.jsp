@@ -183,7 +183,7 @@
 			<img src="img/Janus.PNG" style="width:85px; height:85px;"><br>
 		</div>
 		<div class="header_second">
-			<form method="post" action="searchIndex.jsp" class="header_second">
+			<form method="post" action="bbs/searchIndex.jsp" class="header_second">
 			<input type="text" name="searchWord" size=50 placeholder="search" class="header_second">
 			<button type="submit" class="header_second">검색</button>
 			</form>
