@@ -168,6 +168,20 @@
 <body>
 
 <%
+
+	String id = null;
+	if(session.getAttribute("id")!=null){
+		id = (String)session.getAttribute("id");
+	}
+	if(id == null){
+		PrintWriter script = response.getWriter();
+		script.println("<script>");
+		script.println("alert('로그인 후 이용할 수 있는 서비스 입니다')");
+		script.println("location.href='../user/login.jsp'");
+		script.println("</script>");
+	}
+
+
 	//페이지 넘버
 	int pageNumber = 1; //기본은 1 페이지를 할당
 		// 만약 파라미터로 넘어온 오브젝트 타입 'pageNumber'가 존재한다면
