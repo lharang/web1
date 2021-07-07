@@ -242,7 +242,7 @@
 						<td id="1"></td>
 						<td id="2"><%= list.get(i).getBbsId() %></td>
 						<!-- 게시글 제목을 누르면 해당 글을 볼 수 있도록 링크를 걸어둔다 -->
-						<td id="3"><a href="bbsView.jsp?bbsId=<%= list.get(i).getBbsId() %>">
+						<td id="3"><a href="bbs/bbsView.jsp?bbsId=<%= list.get(i).getBbsId() %>">
 							<%= list.get(i).getBbsTitle() %></a></td>
 						<td id="4"><%= list.get(i).getId() %></td>
 						<td id="5"><%= list.get(i).getBbsDate().substring(0, 11) + list.get(i).getBbsDate().substring(11, 13) + ":"

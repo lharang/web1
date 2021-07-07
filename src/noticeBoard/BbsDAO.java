@@ -164,7 +164,7 @@ public class BbsDAO {
 		
 		
 	//게시글 수정 메소드
-		public int update(int bbsId, String bbsTitle, String bbsContent) {
+		public int update(String bbsTitle, String bbsContent, int bbsId) {
 			String sql = "update bbs set bbsTitle = ?, bbsContent = ? where bbsId = ?";
 			try {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -177,7 +177,9 @@ public class BbsDAO {
 			}
 			return -1;
 		}
-	
+		
+		
+		
 	//게시글 삭제 메소드
 		public int delete(int bbsId) {
 			String sql = "update bbs set bbsAvailable = 0 where bbsId = ?";

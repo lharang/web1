@@ -101,7 +101,7 @@
         </div>
         <div class="h">첨부파일</div>
         <div class="i">
-        <a href="upload.jsp"><input type="file" name="file" value="파일 선택" ></a>
+        <input type="file" name="file" value="파일 선택" >
    		</div>
    		</form>
     </div>
