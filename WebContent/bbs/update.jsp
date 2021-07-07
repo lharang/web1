@@ -17,7 +17,7 @@
     <title>게시글 작성</title>
     <style>
         body {background-color: white;}
-        #wraps {width: 100%; height: 800px; margin: 0 auto; font-size: 20px; color:#fff; text-align: center; text-transform: uppercase;}
+        #wraps {width: 60%; height: 800px; margin: 0 auto; font-size: 20px; color:#fff; text-align: center; text-transform: uppercase;}
         .a {float: left; width: 80%; height: 70px; line-height: 70px; background-color : #505060;}
         div.id {float: left;  height: 70px; width: 50%; line-height: 70px; background-color : #505060;}
         div.part {float: left; width: 30%; height: 70px; line-height: 70px; background: #454555;}
