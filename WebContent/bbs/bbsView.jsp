@@ -24,8 +24,8 @@
         {
         	background-color: white;
         }
-        #wraper {width: 60%; height: 800px; margin: 0 auto; font-size: 20px; 
-        color:#fff; text-align: center; text-transform: uppercase;}
+        #wraper {width: 60%; height: 800px; padding : 0; margin: auto; font-size: 20px; 
+        color:#fff; text-align: center;}
        
 		div.id {float: left;  height: 70px; width: 55%; line-height: 70px; background-color : #505060;}
 		div.back1 {float: left; width: 10%; height: 70px; line-height: 70px; background-color : #303040;}
